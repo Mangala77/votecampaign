@@ -15,7 +15,7 @@ class Cms
           vote = Vote.find_by_campaign_name_and_guid(campaign_name, guid)
           if campaign_name and guid
             new_vote = Vote.create!(:campaign_name => campaign_name, :candidate_name => candidate_name, :validity => validity, :guid => guid) if !vote
-            #puts "vote created successfully #{new_vote}"
+            puts "vote created successfully #{new_vote}"
           end
           count = count + 1
           puts "count #{count}"

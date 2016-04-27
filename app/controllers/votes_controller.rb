@@ -18,8 +18,10 @@ class VotesController < ApplicationController
           @cd_list = {}
           @cd_list["score"] = @cd_list["wrong_score"] = 0
           @cd_list["name"] = cd
+          ## checking with validity during to count the candidate score
           result_with_score = Vote.where(campaign_name: params[:name], validity: "during", :candidate_name => cd).count
           @cd_list["score"] = result_with_score if result_with_score
+          ## check for pre and post message on validity to define wrong score for candidate
           result_with_invalid_score = Vote.where(campaign_name: params[:name], :candidate_name => cd).where.not(validity: "during").count
           @cd_list["wrong_score"] = result_with_invalid_score if result_with_invalid_score
           @candidate_details << @cd_list
@@ -28,7 +30,7 @@ class VotesController < ApplicationController
     end
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @arr_list }
+      format.json { render json: @candidate_details }
     end
   end
 end

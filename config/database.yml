@@ -1,13 +1,10 @@
 
 default: &default
   adapter: mysql2
-  encoding: utf8
-  database: compaign
+  database: campaign
   username: root
   password: 
-  host: 127.0.0.1
-  socket: /tmp/mysql.sock
-  
+
 development:
   <<: *default
 
@@ -16,6 +13,4 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: compaign_test
-
-
+  database: campaign_test
