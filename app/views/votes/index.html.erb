@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>Compaign Name &nbsp; &nbsp; &nbsp;</th>
+  </tr>
+
+   <% @compaigns.each do |name| %>
+  <tr>
+    <td><%= link_to name, list_candidates_votes_path(:name => name)%></td>
+  </tr>
+  <% end %>
+
+</table>

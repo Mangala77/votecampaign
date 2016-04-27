@@ -1,0 +1,18 @@
+<%#= @arr_list %>
+
+<table>
+  <tr>
+    <th>Candidates Name &nbsp; &nbsp; &nbsp;</th>
+    <th>Candidates Score &nbsp; &nbsp; &nbsp;</th>
+    <th>Candidates Wrong Score &nbsp; &nbsp; &nbsp;</th>
+  </tr>
+
+  <% @candidate_details.each do |cd_list| %>
+    <tr>
+      <td><%= cd_list["name"]%></td>
+      <td><%= cd_list["score"]%></td>
+      <td><%= cd_list["wrong_score"]%></td>
+    </tr>
+  <% end %>
+
+</table>
